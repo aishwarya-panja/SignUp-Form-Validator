@@ -1,19 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter , Route, Routes } from "react-router-dom";
 import FormComponent from "./components/FormComponent";
 import Success from "./components/Success";
+import "./App.css" ;
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
-        <Switch>
-          <Route path="/" exact component={FormComponent} />
-          <Route path="/success" component={Success} />
-        </Switch>
-        <h1>SignUp Form</h1>
+        <h1>Sign Up Form</h1>
+        <Routes>
+          <Route path="/" element={<FormComponent />} />
+          <Route path="/success" element={<Success/>} />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
