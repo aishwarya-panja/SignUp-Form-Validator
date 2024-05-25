@@ -1,36 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom" ;
 
-const FormComponent = () => {
+const FormComponent = ({formData, setFormData}) => {
 
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        userName: '',
-        email: '',
-        password: '',
-        phoneNo: '',
-        countryCode: '',
-        country: '',
-        city: '',
-        panNo: '',
-        aadharNo: ''
-    });
-
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
 
+    
     const handleChange = (e) => {
         const { name , value } = e.target;
         setFormData({
-            ...formData,
+            ...formData,  //The spread operator (...formData) is used to create a copy of the current formData state. This ensures that we don't lose any existing data when we update the state.
             [name]:value
         });
     };
 
     const validate = () => {
         let formErrors = {};
+        //'formErrors' is an empty object that stores validation error messages for various form fields.
+        // trim() - it removes any leading and trailing whitespace
         if (!formData.firstName.trim()) formErrors.firstName = "First Name is required";
         if (!formData.lastName.trim()) formErrors.lastName = "Last Name is required";
         if (!formData.userName.trim()) formErrors.userName = "Username is required";
@@ -39,7 +28,7 @@ const FormComponent = () => {
         if (!formData.password) formErrors.password = 'Password is required';
         else if (formData.password.length < 6) formErrors.password = 'Password must be at least 6 characters';
         if (!formData.phoneNo.trim()) formErrors.phoneNo = 'Phone Number is required';
-        if (!formData.countryCode) formErrors.countryCode = 'Country Code is required';
+        if (!formData.countryCode.trim()) formErrors.countryCode = 'Country Code is required';
         if (!formData.country) formErrors.country = 'Country is required';
         if (!formData.city) formErrors.city = 'City is required';
         if (!formData.panNo.trim()) formErrors.panNo = 'Pan Number is required';

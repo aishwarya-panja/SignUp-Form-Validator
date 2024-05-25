@@ -1,15 +1,14 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React from "react";
 
-const Success = () => {
+const Success = ({formData}) => {
 
-  const location = useLocation();
-  const {formData} = location.state || {};
-
-  if(!formData){
-    return <div><h3>No form data found</h3></div>;
+  if (!formData) {
+    return (
+      <div>
+        <h3>No form data found</h3>
+      </div>
+    );
   }
-
 
   return (
     <div>
@@ -24,7 +23,7 @@ const Success = () => {
       <p>PAN Number: {formData.panNo}</p>
       <p>Aadhar Number: {formData.aadharNo}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Success ;
+export default Success;

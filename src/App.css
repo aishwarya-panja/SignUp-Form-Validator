@@ -54,7 +54,8 @@ button:hover:not(:disabled) {
 }
 
 p {
-  color: red;
-  margin: 0;
-  font-size: 0.875em;
+  color: blue;
+  margin: 5px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
