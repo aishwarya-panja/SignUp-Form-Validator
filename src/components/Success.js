@@ -7,7 +7,7 @@ const Success = () => {
   const {formData} = location.state || {};
 
   if(!formData){
-    return <div>No form data found</div>;
+    return <div><h3>No form data found</h3></div>;
   }
 
 

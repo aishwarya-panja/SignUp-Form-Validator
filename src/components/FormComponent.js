@@ -39,6 +39,7 @@ const FormComponent = () => {
         if (!formData.password) formErrors.password = 'Password is required';
         else if (formData.password.length < 6) formErrors.password = 'Password must be at least 6 characters';
         if (!formData.phoneNo.trim()) formErrors.phoneNo = 'Phone Number is required';
+        if (!formData.countryCode) formErrors.countryCode = 'Country Code is required';
         if (!formData.country) formErrors.country = 'Country is required';
         if (!formData.city) formErrors.city = 'City is required';
         if (!formData.panNo.trim()) formErrors.panNo = 'Pan Number is required';
@@ -120,6 +121,16 @@ const FormComponent = () => {
                 onChange={handleChange}
             />
             {errors.phoneNo && <p>{errors.phoneNo}</p>}
+        </div>
+        <div>
+            <label>Country Code</label>
+            <input
+               type = "text"
+               name = "countryCode"
+                value={formData.countryCode}
+                onChange={handleChange}
+            />
+            {errors.countryCode && <p>{errors.countryCode}</p>}
         </div>
         <div>
             <label>Country</label>
